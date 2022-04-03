@@ -1,3 +1,5 @@
+let Log = require('./Log');
+
 /**
  * @typedef {object} DependencyObject
  * @property {string} package
@@ -49,6 +51,7 @@ exports.PackageDependency = class PackageDependency {
 
             return true;
         } catch (e) {
+            Log.error(e);
             return false;
         }
     }
