@@ -103,7 +103,7 @@ function findWebpackLoader(config, loader, forRule = undefined) {
     /** @type {(loader: string) => boolean} */
     const checkLoader =
         typeof loader === 'string'
-            ? str => new RegExp(`[\/\\\\]${loader}[\/\\\\]`).test(str)
+            ? str => new RegExp(`[/\\\\]${loader}[/\\\\]`).test(str)
             : loader instanceof RegExp
             ? str => loader.test(str)
             : loader;
@@ -236,7 +236,6 @@ export function assert(t) {
          * Verify that the mix manifest is the same as `expected`
          *
          * @param {Record<string, string>} expected
-         * @param {import("ava").Assertions} t
          */
         manifestEquals(expected) {
             let manifest = JSON.parse(
